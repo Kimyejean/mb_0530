@@ -1,5 +1,43 @@
-<div>Teachable Machine Image Model</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teachable Machine Image Model</title>
+    <style>
+        body {
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
 
+        h1 {
+            color: white;
+        }
+
+        #webcam-container {
+            margin-bottom: 20px;
+        }
+
+        #label-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .label {
+            margin: 5px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teachable Machine Image Model</h1>
 <button type="button" onclick="init()">Start</button>
 
 <div id="webcam-container"></div>
@@ -252,4 +290,6 @@ async function predict() {
         labelElement.innerHTML = classPrediction;
     }
 }
-</script>
+    </script>
+</body>
+</html>

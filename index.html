@@ -235,13 +235,18 @@ async function predict() {
     }
 
     // 가장 높은 확률을 가진 항목의 글자 색 변경
-    for (let i = 0; i < maxPredictions; i++) {
+     for (let i = 0; i < maxPredictions; i++) {
         const labelElement = labelContainer.childNodes[i];
         if (i === maxIndex) {
-            labelElement.style.color = "red"; // 가장 높은 확률 항목의 글자 색을 빨간색으로 변경
+            if (prediction[i].probability >= 0.7) {
+                labelElement.style.color = "red"; // 가장 높은 확률 항목의 글자 색을 빨간색으로 변경
+            } else {
+                labelElement.style.color = "black"; // 가장 높은 확률 항목이지만 확률이 0.7 미만인 경우 글자 색을 검은색으로 유지
+            }
         } else {
             labelElement.style.color = "black"; // 다른 항목의 글자 색을 검은색으로 변경
         }
+
 
         const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelElement.innerHTML = classPrediction;
